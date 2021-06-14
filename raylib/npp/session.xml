@@ -1,8 +1,7 @@
 <NotepadPlus>
     <Session activeView="0">
-        <mainView activeIndex="1">
-            <File firstVisibleLine="10" xOffset="0" scrollWidth="1" startPos="0" endPos="0" selMode="0" offset="0" wrapCount="1" lang="C++" encoding="-1" userReadOnly="no" filename="C:\Users\SW2160\Desktop\project\raylib\raylib\src\raylib.h" backupFilePath="" originalFileLastModifTimestamp="-232726272" originalFileLastModifTimestampHigh="30857456" mapFirstVisibleDisplayLine="-1" mapFirstVisibleDocLine="-1" mapLastVisibleDocLine="-1" mapNbLine="-1" mapHigherPos="-1" mapWidth="-1" mapHeight="-1" mapKByteInDoc="254431947" mapWrapIndentMode="-1" mapIsWrap="no" />
-            <File firstVisibleLine="24" xOffset="0" scrollWidth="1991" startPos="0" endPos="0" selMode="0" offset="0" wrapCount="1" lang="C" encoding="-1" userReadOnly="no" filename="C:\Users\SW2160\Desktop\project\raylib\raylib\examples\core\core_basic_window.c" backupFilePath="" originalFileLastModifTimestamp="590742245" originalFileLastModifTimestampHigh="30889054" mapFirstVisibleDisplayLine="-1" mapFirstVisibleDocLine="-1" mapLastVisibleDocLine="-1" mapNbLine="-1" mapHigherPos="-1" mapWidth="-1" mapHeight="-1" mapKByteInDoc="254431947" mapWrapIndentMode="-1" mapIsWrap="no" />
+        <mainView activeIndex="0">
+            <File firstVisibleLine="33" xOffset="0" scrollWidth="3267" startPos="3219" endPos="3219" selMode="0" offset="0" wrapCount="1" lang="C++" encoding="-1" userReadOnly="no" filename="C:\Users\SW2160\Desktop\TXMAY\raylib\tcc\include\raylib.h" backupFilePath="" originalFileLastModifTimestamp="1581183834" originalFileLastModifTimestampHigh="30892106" mapFirstVisibleDisplayLine="-1" mapFirstVisibleDocLine="-1" mapLastVisibleDocLine="-1" mapNbLine="-1" mapHigherPos="-1" mapWidth="-1" mapHeight="-1" mapKByteInDoc="49795" mapWrapIndentMode="-1" mapIsWrap="no" />
         </mainView>
         <subView activeIndex="0" />
     </Session>

@@ -40,7 +40,7 @@
         <GUIConfig name="ScintillaViewsSplitter">vertical</GUIConfig>
         <GUIConfig name="UserDefineDlg" position="undocked">hide</GUIConfig>
         <GUIConfig name="TabSetting" replaceBySpace="yes" size="4" />
-        <GUIConfig name="AppPosition" x="601" y="271" width="1165" height="999" isMaximized="no" />
+        <GUIConfig name="AppPosition" x="601" y="271" width="1165" height="999" isMaximized="yes" />
         <GUIConfig name="FindWindowPosition" left="959" top="233" right="1548" bottom="597" />
         <GUIConfig name="FinderConfig" wrappedLines="no" />
         <GUIConfig name="noUpdate" intervalDays="15" nextUpdateDate="20080426">yes</GUIConfig>
@@ -68,7 +68,7 @@
         <GUIConfig name="ScintillaGlobalSettings" enableMultiSelection="no" />
         <GUIConfig name="openSaveDir" value="0" defaultDirPath="" />
         <GUIConfig name="titleBar" short="no" />
-        <GUIConfig name="stylerTheme" path="C:\Users\SW2160\Desktop\project\raylib\npp\themes\Obsidian.xml" />
+        <GUIConfig name="stylerTheme" path="C:\Users\SW2160\Desktop\TXMAY\raylib\npp\themes\Obsidian.xml" />
         <GUIConfig name="wordCharList" useDefault="yes" charsAdded="" />
         <GUIConfig name="delimiterSelection" leftmostDelimiter="40" rightmostDelimiter="41" delimiterSelectionOnEntireDocument="no" />
         <GUIConfig name="multiInst" setting="0" />
