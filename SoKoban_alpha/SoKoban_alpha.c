@@ -5,6 +5,7 @@ char stage[5][5];
 char move_key;
 int chr_x, chr_y;
 int stage_cls = 0;
+int stone;
 void stage_print(void)
 {
 	for (int i = 0; i < 5; i++)
@@ -29,172 +30,101 @@ void stage_set(void)
 	stage[1][1] = '-';
 	stage[3][3] = '-';
 	stage[2][1] = '+';
-	stage[2][3] = '0';
-	stage[2][2] = '+';
+	stage[2][3] = '+';
+	stage[2][2] = '0';
 
 
 }
 void get_move(void)
 {
+	printf("%d\n", stone);
 	printf("움직일 방향을 입력하세요(w,a,s,d) :");
 	scanf("%c", &move_key);
+
 }
 void get_chr(void)
 {
+	stone = 0;
 	for (int i = 0; i <= 4; i++)
 	{
 		for (int j = 0; j <= 4; j++)
-			if (stage[i][j] == '0'|| stage[i][j] == '%')
+		{
+			if (stage[i][j] == '0')
 			{
 				chr_x = i;
 				chr_y = j;
+				stage[i][j] = ' ';
 			}
+			if (stage[i][j] == '-')
+			{
+				stone++;
+			}
+		}
 	}
 }
-void stage_move(void)
+void move(void)
 {
-	if (move_key == 'w')
+	int x = 0, y = 0;
+	switch (move_key)
 	{
-		if (stage[chr_x][chr_y] == '%' && stage[chr_x - 1][chr_y] == ' ')
+	case 'w':
+		x = -1;
+		break;
+	case 'a':
+		y = -1;
+		break;
+	case 's':
+		x = 1;
+		break;
+	case 'd':
+		y = 1;
+		break;
+	default:
+		break;
+	}
+	if (stage[chr_x + x][chr_y + y] == '#' || stage[chr_x + x][chr_y + y] == '-')
+	{
+		stage[chr_x][chr_y] = '0';
+	}
+	else if (stage[chr_x + x][chr_y + y] == '+')
+	{
+		if (stage[chr_x + x * 2][chr_y + y * 2] == '-')
 		{
-			stage[chr_x][chr_y] = '-';
-			stage[chr_x - 1][chr_y] = '0';
+			stage[chr_x + x * 2][chr_y + y * 2] = '+';
+			stage[chr_x + x][chr_y + y] = '0';
 		}
-		if (stage[chr_x - 1][chr_y] == '-')
+		else if (stage[chr_x + x * 2][chr_y + y * 2] == ' ')
 		{
-			stage[chr_x][chr_y] = ' ';
-			stage[chr_x - 1][chr_y] = '%';
+			stage[chr_x + x * 2][chr_y + y * 2] = '+';
+			stage[chr_x + x][chr_y + y] = '0';
 		}
-		if (stage[chr_x - 1][chr_y] == '+'&& stage[chr_x - 2][chr_y] != '#')
+		else if (stage[chr_x + x * 2][chr_y + y * 2] == '#' || stage[chr_x + x * 2][chr_y + y * 2] == '+')
 		{
-			if (stage[chr_x - 2][chr_y] == '-')
-			{
-				stage[chr_x][chr_y] = ' ';
-				stage[chr_x - 1][chr_y] = '0';
-				stage[chr_x - 2][chr_y] = '*';
-			}
-			else if (stage[chr_x - 2][chr_y] != '+')
-			{
-				stage[chr_x][chr_y] = ' ';
-				stage[chr_x - 1][chr_y] = '0';
-				stage[chr_x - 2][chr_y] = '+';
-			}
-		}
-		if (stage[chr_x-1][chr_y] != '#'&& stage[chr_x - 1][chr_y] == ' ')
-		{
-			stage[chr_x][chr_y] = ' ';
-			stage[chr_x-1][chr_y] = '0';
+			stage[chr_x + x][chr_y + y] = '+';
+			stage[chr_x][chr_y] = '0';
 		}
 	}
-	else if (move_key == 'a')
+	else
 	{
-		if (stage[chr_x][chr_y] == '%' && stage[chr_x][chr_y - 1] != '#')
-		{
-			stage[chr_x][chr_y] = '-';
-			stage[chr_x][chr_y - 1] = '0';
-		}
-		if (stage[chr_x][chr_y - 1] == '-')
-		{
-			stage[chr_x][chr_y] = ' ';
-			stage[chr_x][chr_y - 1] = '%';
-		}
-		if (stage[chr_x][chr_y - 1] == '+' && stage[chr_x][chr_y - 2] != '#')
-		{
-			if (stage[chr_x][chr_y - 2] == '-')
-			{
-				stage[chr_x][chr_y] = ' ';
-				stage[chr_x][chr_y - 1] = '0';
-				stage[chr_x][chr_y - 2] = '*';
-			}
-			else if(stage[chr_x][chr_y - 2] != '+')
-			{
-				stage[chr_x][chr_y] = ' ';
-				stage[chr_x][chr_y - 1] = '0';
-				stage[chr_x][chr_y - 2] = '+';
-			}
-		}
-		if (stage[chr_x][chr_y - 1] != '#' && stage[chr_x][chr_y - 1] == ' ')
-		{
-			stage[chr_x][chr_y] = ' ';
-			stage[chr_x][chr_y - 1] = '0';
-		}
-	}
-	else if (move_key == 's')
-	{
-		if (stage[chr_x][chr_y] == '%' && stage[chr_x + 1][chr_y] == ' ')
-		{
-			stage[chr_x][chr_y] = '-';
-			stage[chr_x + 1][chr_y] = '0';
-		}
-		if (stage[chr_x + 1][chr_y] == '-')
-		{
-			stage[chr_x][chr_y] = ' ';
-			stage[chr_x + 1][chr_y] = '%';
-		}
-		if (stage[chr_x + 1][chr_y] == '+' && stage[chr_x + 2][chr_y] != '#')
-		{
-			if (stage[chr_x + 2][chr_y] == '-')
-			{
-				stage[chr_x][chr_y] = ' ';
-				stage[chr_x + 1][chr_y] = '0';
-				stage[chr_x + 2][chr_y] = '*';
-			}
-			else if (stage[chr_x + 1][chr_y] != '+')
-			{
-				stage[chr_x][chr_y] = ' ';
-				stage[chr_x + 1][chr_y] = '0';
-				stage[chr_x + 2][chr_y] = '+';
-			}
-		}
-		if (stage[chr_x + 1][chr_y] != '#' && stage[chr_x + 1][chr_y] == ' ')
-		{
-			stage[chr_x][chr_y] = ' ';
-			stage[chr_x + 1][chr_y] = '0';
-		}
-	}
-	else if (move_key == 'd')
-	{
-	if (stage[chr_x][chr_y] == '%' && stage[chr_x][chr_y + 1] != '#')
-	{
-		stage[chr_x][chr_y] = '-';
-		stage[chr_x][chr_y + 1] = '0';
-	}
-	if (stage[chr_x][chr_y + 1] == '-')
-	{
-		stage[chr_x][chr_y] = ' ';
-		stage[chr_x][chr_y + 1] = '%';
-	}
-	if (stage[chr_x][chr_y + 1] == '+' && stage[chr_x][chr_y + 2] != '#')
-	{
-		if (stage[chr_x][chr_y + 2] == '-')
-		{
-			stage[chr_x][chr_y] = ' ';
-			stage[chr_x][chr_y + 1] = '0';
-			stage[chr_x][chr_y + 2] = '*';
-		}
-		else if (stage[chr_x][chr_y + 2] != '+')
-		{
-			stage[chr_x][chr_y] = ' ';
-			stage[chr_x][chr_y + 1] = '0';
-			stage[chr_x][chr_y + 2] = '+';
-		}
-	}
-	if (stage[chr_x][chr_y + 1] != '#' && stage[chr_x][chr_y + 1] == ' ')
-	{
-		stage[chr_x][chr_y] = ' ';
-		stage[chr_x][chr_y + 1] = '0';
-	}
+		stage[chr_x + x][chr_y + y] = '0';
 	}
 }
+
 int main(void)
 {
 	stage_set();
 	while (stage_cls == 0)
 	{
 		stage_print();
-		get_move();
+
 		get_chr();
-		stage_move();
+		get_move();
+		move();
 		system("cls");
+		if (stone == 0)
+		{
+			stage_cls++;
+			printf("clear!");
+		}
 	}
 }
