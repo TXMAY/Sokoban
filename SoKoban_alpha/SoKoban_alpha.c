@@ -28,10 +28,10 @@ void stage_set(void)
 		}
 	}
 	stage[1][1] = '-';
-	stage[3][3] = '-';
+	stage[3][2] = '-';
 	stage[2][1] = '+';
-	stage[2][3] = '+';
-	stage[2][2] = '0';
+	stage[2][3] = '0';
+	stage[2][2] = '+';
 
 
 }
