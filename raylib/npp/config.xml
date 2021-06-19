@@ -6,16 +6,18 @@
         <Filter name="" />
         <Filter name="" />
         <Filter name="" />
-        <Find name="SUPPORT_" />
-        <Find name="FLAG_" />
-        <Find name="SetWindowState" />
-        <Find name="SetConfigFlags" />
-        <Find name="RenderTexture" />
-        <Find name="LoadModelAnimations" />
-        <Find name="&#x0009;" />
-        <Find name="RLAPI" />
-        <Find name="TRACELOG(" />
-        <Find name="failed to" />
+        <Filter name="" />
+        <Filter name="" />
+        <Find name="stage_cls" />
+        <Find name="stage+cls" />
+        <Find name="&apos;" />
+        <Find name="move" />
+        <Find name="get_move" />
+        <Find name="get_chr" />
+        <Find name="stage_print" />
+        <Find name="stage_printf" />
+        <Find name="stage_set" />
+        <Find name="move_key" />
         <Replace name="    " />
         <Replace name="emscripten_set_main_loop(UpdateDrawFrame, 60" />
         <Replace name="recPattern" />
@@ -40,8 +42,8 @@
         <GUIConfig name="ScintillaViewsSplitter">vertical</GUIConfig>
         <GUIConfig name="UserDefineDlg" position="undocked">hide</GUIConfig>
         <GUIConfig name="TabSetting" replaceBySpace="yes" size="4" />
-        <GUIConfig name="AppPosition" x="601" y="271" width="1165" height="999" isMaximized="yes" />
-        <GUIConfig name="FindWindowPosition" left="959" top="233" right="1548" bottom="597" />
+        <GUIConfig name="AppPosition" x="601" y="271" width="1165" height="999" isMaximized="no" />
+        <GUIConfig name="FindWindowPosition" left="-200" top="160" right="389" bottom="524" />
         <GUIConfig name="FinderConfig" wrappedLines="no" />
         <GUIConfig name="noUpdate" intervalDays="15" nextUpdateDate="20080426">yes</GUIConfig>
         <GUIConfig name="Auto-detection">yes</GUIConfig>
@@ -68,7 +70,7 @@
         <GUIConfig name="ScintillaGlobalSettings" enableMultiSelection="no" />
         <GUIConfig name="openSaveDir" value="0" defaultDirPath="" />
         <GUIConfig name="titleBar" short="no" />
-        <GUIConfig name="stylerTheme" path="C:\Users\SW2160\Desktop\TXMAY\raylib\npp\themes\Obsidian.xml" />
+        <GUIConfig name="stylerTheme" path="C:\Users\pc\Desktop\TXMAY\raylib\npp\themes\Obsidian.xml" />
         <GUIConfig name="wordCharList" useDefault="yes" charsAdded="" />
         <GUIConfig name="delimiterSelection" leftmostDelimiter="40" rightmostDelimiter="41" delimiterSelectionOnEntireDocument="no" />
         <GUIConfig name="multiInst" setting="0" />
