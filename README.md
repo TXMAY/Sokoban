@@ -37,5 +37,5 @@
 
 ◈ Develop
 - TXMAY :
-- Princess :
+- Prince :
 - Jong Hyuk :
