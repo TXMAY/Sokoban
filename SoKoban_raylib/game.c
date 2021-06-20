@@ -5,7 +5,7 @@ int stage[9][9];
 int chr_x, chr_y;
 int stage_cls = 0;
 int stone;
-    
+  
 // 0은 공백, 1은 플레이어, 2은 도착지, 3는 상자, 4은 벽, 
 
 void stage_set(void)
@@ -47,8 +47,8 @@ void get_chr(void)
 }
 void move(void)
 {
-    int x = 0, y = 0;
-	
+
+	int x = 0, y = 0;  
 	
     if(IsKeyPressed(KEY_UP)) y = -1;
 	if(IsKeyPressed(KEY_LEFT)) x = -1;
@@ -94,12 +94,15 @@ int main(void)
 	Texture2D wall = LoadTexture("images/wall.png");
 	Texture2D wool = LoadTexture("images/wool.png");
     Texture2D box = LoadTexture("images/box.png");
-    Wave cat_wav = LoadWave("sounds/Cat_Walk.wav");
-    Sound cat_walk = LoadSoundFromWave(cat_wav);
+    Sound cat_walk = LoadSound("sounds/Cat_Walk.wav");
+    Music music = LoadMusicStream("sounds/Project_TIMIRUM_03.mp3");
+    PlayMusicStream(music);
 	stage_set();
 	while (!WindowShouldClose())
 	{
 		BeginDrawing();
+        
+        UpdateMusicStream(music);
         
         ClearBackground(RAYWHITE);
         
@@ -122,7 +125,7 @@ int main(void)
 		}
 		get_chr();
 		move();
-        PlaySound(cat_walk);
+        if(IsKeyPressed(KEY_DOWN)||IsKeyPressed(KEY_LEFT)||IsKeyPressed(KEY_RIGHT)||IsKeyPressed(KEY_UP)) PlaySound(cat_walk);
 		if (stone == 0)
 		{
 			stage_cls++;
@@ -136,7 +139,7 @@ int main(void)
     UnloadTexture(box);
     UnloadTexture(wool);
     UnloadSound(cat_walk);
-    UnloadWave(cat_wav);
+    UnloadMusicStream(music);
     
     CloseAudioDevice();
     
