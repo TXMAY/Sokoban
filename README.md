@@ -20,7 +20,7 @@
 
 4. Project Information
 
--Used Apps : Design - UNITY/ Sound - Ableton Live 10 suite/ Develop - raylib
+- Used Apps : Design - UNITY/ Sound - Ableton Live 10 suite/ Develop - raylib
 -
 
 5. Developer Commentary
