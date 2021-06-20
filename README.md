@@ -27,7 +27,6 @@
 
 ◈ Design
 - Valentin1020 :
-- Haki :
 
 ◈ Plan
 - sinutella :
@@ -37,5 +36,4 @@
 
 ◈ Develop
 - TXMAY :
-- Prince :
 - Jong Hyuk :
