@@ -52,7 +52,7 @@ void move(void)
 	
     if(IsKeyPressed(KEY_UP)) y = -1;
 	if(IsKeyPressed(KEY_LEFT)) x = -1;
-	if(IsKeyPressed(KEY_DOWN)) y = 1;
+    if(IsKeyPressed(KEY_DOWN)) y = 1;
 	if(IsKeyPressed(KEY_RIGHT)) x = 1;
 	
 	
@@ -89,10 +89,13 @@ int main(void)
     const int screenHeight = 720;
 
 	InitWindow(screenWidth, screenHeight, "SoKoban");
+    InitAudioDevice();
 	Texture2D cat = LoadTexture("images/cat.png");
 	Texture2D wall = LoadTexture("images/wall.png");
 	Texture2D wool = LoadTexture("images/wool.png");
     Texture2D box = LoadTexture("images/box.png");
+    Wave cat_wav = LoadWave("sounds/Cat_Walk.wav");
+    Sound cat_walk = LoadSoundFromWave(cat_wav);
 	stage_set();
 	while (!WindowShouldClose())
 	{
@@ -119,6 +122,7 @@ int main(void)
 		}
 		get_chr();
 		move();
+        PlaySound(cat_walk);
 		if (stone == 0)
 		{
 			stage_cls++;
@@ -131,6 +135,10 @@ int main(void)
     UnloadTexture(wall);
     UnloadTexture(box);
     UnloadTexture(wool);
+    UnloadSound(cat_walk);
+    UnloadWave(cat_wav);
+    
+    CloseAudioDevice();
     
     CloseWindow();
 
