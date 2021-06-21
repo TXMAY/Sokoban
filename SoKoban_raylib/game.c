@@ -3,7 +3,6 @@
 int stage[9][9];
 
 int chr_x, chr_y;
-int stage_cls = 0;
 int stone;
   
 // 0은 공백, 1은 플레이어, 2은 도착지, 3는 상자, 4은 벽, 
@@ -20,9 +19,11 @@ void stage_set(void)
 				stage[i][j] = 0;
 		}
 	}
+    
     stage[4][4] = 1;
-    stage[4][5] = 3;
-    stage[2][3] = 2;
+    stage[1][1]=stage[1][7]=stage[7][1]=stage[7][7] = 2;
+    stage[2][4]=stage[5][2]=stage[7][4]=stage[4][6]=3;
+    stage[1][2]=stage[1][6]=stage[2][6]=stage[3][2]=stage[3][3]=stage[3][6]=stage[5][5]=stage[6][1]=stage[6][2]=stage[6][5]=stage[6][6]=stage[6][7]=4;
 }
 
 void get_chr(void)
@@ -34,8 +35,8 @@ void get_chr(void)
 		{
 			if (stage[i][j] == 1)
 			{
-				chr_x = i;
-				chr_y = j;
+				chr_x = j;
+				chr_y = i;
 				stage[i][j] = 0;
 			}
 			if (stage[i][j] == 2)
@@ -56,31 +57,31 @@ void move(void)
 	if(IsKeyPressed(KEY_RIGHT)) x = 1;
 	
 	
-	if (stage[chr_x + x][chr_y + y] == 4 || stage[chr_x + x][chr_y + y] == 2)
+	if (stage[chr_y + y][chr_x + x] == 4 || stage[chr_y + y][chr_x + x] == 2)
 	{
-		stage[chr_x][chr_y] = 1;
+		stage[chr_y][chr_x] = 1;
 	}
-	else if (stage[chr_x + x][chr_y + y] == 3)
+	else if (stage[chr_y + y][chr_x + x] == 3)
 	{
-		if (stage[chr_x + x * 2][chr_y + y * 2] == 2)
+		if (stage[chr_y + y * 2][chr_x + x * 2] == 2)
 		{
-			stage[chr_x + x * 2][chr_y + y * 2] = 3;
-			stage[chr_x + x][chr_y + y] = 1;
+			stage[chr_y + y * 2][chr_x + x * 2] = 3;
+			stage[chr_y + y][chr_x + x] = 1;
 		}
-		else if (stage[chr_x + x * 2][chr_y + y * 2] == 0)
+		else if (stage[chr_y + y * 2][chr_x + x * 2] == 0)
 		{
-			stage[chr_x + x * 2][chr_y + y * 2] = 3;
-			stage[chr_x + x][chr_y + y] = 1;
+			stage[chr_y + y * 2][chr_x + x * 2] = 3;
+			stage[chr_y + y][chr_x + x] = 1;
 		}
-		else if (stage[chr_x + x * 2][chr_y + y * 2] == 4 || stage[chr_x + x * 2][chr_y + y * 2] == 3)
+		else if (stage[chr_y + y * 2][chr_x + x * 2] == 4 || stage[chr_y + y * 2][chr_x + x * 2] == 3)
 		{
-			stage[chr_x + x][chr_y + y] = 3;
-			stage[chr_x][chr_y] = 1;
+			stage[chr_y + y][chr_x + x] = 3;
+			stage[chr_y][chr_x] = 1;
 		}
 	}
 	else
 	{
-		stage[chr_x + x][chr_y + y] = 1;
+		stage[chr_y + y][chr_x + x] = 1;
 	}
 }
 int main(void)
@@ -112,15 +113,15 @@ int main(void)
 			{
 
                 if (stage[i][j] == 0)
-                    DrawText("null", 280.0f + 80.0f * i, 0.0f + 80.0f * j, 10, WHITE);
+                    DrawText("null", 280.0f + 80.0f * j, 0.0f + 80.0f * i, 10, WHITE);
 				else if (stage[i][j] == 1)
-					DrawTexture(cat, 280.0f + 80.0f * i, 0.0f + 80.0f * j, WHITE);
+					DrawTexture(cat, 280.0f + 80.0f * j, 0.0f + 80.0f * i, WHITE);
 				else if (stage[i][j] == 2)
-					DrawTexture(box, 280.0f + 80.0f * i, 0.0f + 80.0f * j, WHITE);
+					DrawTexture(box, 280.0f + 80.0f * j, 0.0f + 80.0f * i, WHITE);
 				else if (stage[i][j] == 3)
-					DrawTexture(wool, 280.0f + 80.0f * i, 0.0f + 80.0f * j, WHITE);
+					DrawTexture(wool, 280.0f + 80.0f * j, 0.0f + 80.0f * i, WHITE);
 				else
-					DrawTexture(wall, 280.0f + 80.0f * i, 0.0f + 80.0f * j, WHITE);
+					DrawTexture(wall, 280.0f + 80.0f * j, 0.0f + 80.0f * i, WHITE);
 			}
 		}
 		get_chr();
@@ -128,7 +129,7 @@ int main(void)
         if(IsKeyPressed(KEY_DOWN)||IsKeyPressed(KEY_LEFT)||IsKeyPressed(KEY_RIGHT)||IsKeyPressed(KEY_UP)) PlaySound(cat_walk);
 		if (stone == 0)
 		{
-			stage_cls++;
+			DrawText("Clear!", screenWidth/2-140, screenHeight/2-60, 100, BLACK);
 			
 		}
         
