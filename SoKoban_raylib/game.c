@@ -55,7 +55,7 @@ void move(void)
 	if(IsKeyPressed(KEY_LEFT)) x = -1;
     if(IsKeyPressed(KEY_DOWN)) y = 1;
 	if(IsKeyPressed(KEY_RIGHT)) x = 1;
-	
+
 	
 	if (stage[chr_y + y][chr_x + x] == 4 || stage[chr_y + y][chr_x + x] == 2)
 	{
@@ -97,6 +97,8 @@ int main(void)
     Texture2D box = LoadTexture("images/box.png");
     Sound cat_walk = LoadSound("sounds/Cat_Walk.wav");
     Music music = LoadMusicStream("sounds/Project_TIMIRUM_03.mp3");
+    SetSoundVolume(cat_walk, 0.5);
+    SetMusicVolume(music, 0.25);
     PlayMusicStream(music);
 	stage_set();
 	while (!WindowShouldClose())
@@ -113,7 +115,7 @@ int main(void)
 			{
 
                 if (stage[i][j] == 0)
-                    DrawText("null", 280.0f + 80.0f * j, 0.0f + 80.0f * i, 10, WHITE);
+                    ;
 				else if (stage[i][j] == 1)
 					DrawTexture(cat, 280.0f + 80.0f * j, 0.0f + 80.0f * i, WHITE);
 				else if (stage[i][j] == 2)
@@ -127,6 +129,7 @@ int main(void)
 		get_chr();
 		move();
         if(IsKeyPressed(KEY_DOWN)||IsKeyPressed(KEY_LEFT)||IsKeyPressed(KEY_RIGHT)||IsKeyPressed(KEY_UP)) PlaySound(cat_walk);
+        if(IsKeyPressed(KEY_R)) stage_set();
 		if (stone == 0)
 		{
 			DrawText("Clear!", screenWidth/2-140, screenHeight/2-60, 100, BLACK);
