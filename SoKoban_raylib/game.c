@@ -5,7 +5,7 @@ int stage[9][9];
 int chr_x, chr_y;
 int stone;
   
-// 0은 공백, 1은 플레이어, 2은 도착지, 3는 상자, 4은 벽, 
+// 0은 공백, 1은 플레이어, 2은 도착지, 3는 상자, 4은 벽, 5는 활성화된 상자
 
 void stage_set(void)
 {
@@ -57,7 +57,7 @@ void move(void)
 	if(IsKeyPressed(KEY_RIGHT)) x = 1;
 
 	
-	if (stage[chr_y + y][chr_x + x] == 4 || stage[chr_y + y][chr_x + x] == 2)
+	if (stage[chr_y + y][chr_x + x] == 4 || stage[chr_y + y][chr_x + x] == 2 || stage[chr_y + y][chr_x + x] == 5)
 	{
 		stage[chr_y][chr_x] = 1;
 	}
@@ -65,7 +65,7 @@ void move(void)
 	{
 		if (stage[chr_y + y * 2][chr_x + x * 2] == 2)
 		{
-			stage[chr_y + y * 2][chr_x + x * 2] = 3;
+			stage[chr_y + y * 2][chr_x + x * 2] = 5;
 			stage[chr_y + y][chr_x + x] = 1;
 		}
 		else if (stage[chr_y + y * 2][chr_x + x * 2] == 0)
@@ -95,6 +95,7 @@ int main(void)
 	Texture2D wall = LoadTexture("images/wall.png");
 	Texture2D wool = LoadTexture("images/wool.png");
     Texture2D box = LoadTexture("images/box.png");
+    Texture2D box_wool = LoadTexture("images/box_wool.png");
     Sound cat_walk = LoadSound("sounds/Cat_Walk.wav");
     Music music = LoadMusicStream("sounds/Project_TIMIRUM_03.mp3");
     SetSoundVolume(cat_walk, 0.5);
@@ -122,8 +123,10 @@ int main(void)
 					DrawTexture(box, 280.0f + 80.0f * j, 0.0f + 80.0f * i, WHITE);
 				else if (stage[i][j] == 3)
 					DrawTexture(wool, 280.0f + 80.0f * j, 0.0f + 80.0f * i, WHITE);
-				else
+				else if (stage[i][j] == 4)
 					DrawTexture(wall, 280.0f + 80.0f * j, 0.0f + 80.0f * i, WHITE);
+                else
+                    DrawTexture(box_wool, 280.0f + 80.0f * j, 0.0f + 80.0f * i, WHITE);
 			}
 		}
 		get_chr();
