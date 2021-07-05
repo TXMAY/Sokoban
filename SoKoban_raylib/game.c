@@ -48,7 +48,6 @@ void get_chr(void)
 }
 void move(void)
 {
-
 	int x = 0, y = 0;  
 	
     if(IsKeyPressed(KEY_UP)) y = -1;
@@ -78,6 +77,7 @@ void move(void)
 			stage[chr_y + y][chr_x + x] = 3;
 			stage[chr_y][chr_x] = 1;
 		}
+
 	}
 	else
 	{
