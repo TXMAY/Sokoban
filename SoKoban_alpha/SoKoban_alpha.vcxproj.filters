@@ -15,11 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\raylib\tcc\include\raylib.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="..\raylib\raylib\src\raylib.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
+    <ClCompile Include="SoKoban_alpha.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

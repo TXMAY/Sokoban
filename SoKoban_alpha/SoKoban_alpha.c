@@ -1,27 +1,27 @@
 ﻿#include <stdio.h>
 #include <Windows.h>
 
-char stage[21][21];
+char stage[5][5];
 char move_key;
 int chr_x, chr_y;
 int stage_cls = 0;
 int stone;
 void stage_print(void)
 {
-	for (int i = 0; i < 21; i++)
+	for (int i = 0; i < 5; i++)
 	{
-		for (int j = 0; j < 21; j++)
+		for (int j = 0; j < 5; j++)
 			printf("%c", stage[i][j]);
 		printf("\n");
 	}
 }
 void stage_set(void)
 {
-	for (int i = 0; i <= 22; i++)
+	for (int i = 0; i <= 4; i++)
 	{
-		for (int j = 0; j <= 22; j++)
+		for (int j = 0; j <= 4; j++)
 		{
-			if (i == 0 || j == 0 || i == 22 || j == 22)
+			if (i == 0 || j == 0 || i == 4 || j == 4)
 				stage[i][j] = '#';
 			else
 				stage[i][j] = ' ';
@@ -45,9 +45,9 @@ void get_move(void)
 void get_chr(void)
 {
 	stone = 0;
-	for (int i = 0; i <= 22; i++)
+	for (int i = 0; i <= 4; i++)
 	{
-		for (int j = 0; j <= 22; j++)
+		for (int j = 0; j <= 4; j++)
 		{
 			if (stage[i][j] == '0')
 			{

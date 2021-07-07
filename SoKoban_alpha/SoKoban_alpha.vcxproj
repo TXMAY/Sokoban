@@ -139,8 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\raylib\raylib\src\raylib.h" />
-    <ClInclude Include="..\raylib\tcc\include\raylib.h" />
+    <ClCompile Include="SoKoban_alpha.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
