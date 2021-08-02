@@ -1,1 +1,2 @@
 C:\Users\pc\Desktop\TXMAY\멘토링\hello_world\x64\Debug\hello_world.exe
+C:\Users\pc\Desktop\TXMAY\멘토링\개인멘토링\hello_world\x64\Debug\hello_world.exe

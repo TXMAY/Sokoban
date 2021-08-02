@@ -6,7 +6,7 @@
 int main(void) //int main(int argc, char** argv)
 {
 	printf("Hello, World!")
-	return (0);
+		return (0);
 }
 #endif
 
@@ -113,6 +113,7 @@ int main()
 }
 #endif
 
+#if 0
 #include <iostream>
 class Vector3
 {
@@ -139,8 +140,49 @@ int main()
 	v.SetVector(1.0f, 1.0f, 1.0f);
 	v.PrintVector();
 }
+#endif
 
 // Vector3
 // (1) 생성자와 소멸자 적용
 // (2) Vector3 = Vector3 + Vector3
 //		v1 = v2 + v3;
+
+#include <iostream>
+class Vector3
+{
+private:
+	float x = 0.0f;
+	float y = 0.0f;
+	float z = 0.0f;
+public:
+	void GetVector()
+	{
+		float a, b, c;
+		std::cin >> a >> b >> c;
+		x = a;
+		y = b;
+		z = c;
+	}
+	void PrintVector()
+	{
+		std::cout << "X: " << x << " || Y: " << y << " || Z: " << z << std::endl;
+	}
+	static Vector3 Sum(Vector3 a, Vector3 b, Vector3 c);
+};
+
+class Vector
+{
+	Vector()
+	{
+		std::cout << "벡터를 입력하세요.(X, Y, Z)" << std::endl;
+	}
+};
+
+int main()
+{
+	float a, b, c;
+	Vector3 v1, v2, v3;
+	v1.GetVector();
+	v1.PrintVector();
+	
+}
