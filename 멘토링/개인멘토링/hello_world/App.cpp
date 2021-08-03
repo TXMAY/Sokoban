@@ -1,4 +1,3 @@
-
 #if 0
 // C STANDARD
 // 절차지향 프로그램(전지적 작가시점)
@@ -155,34 +154,40 @@ private:
 	float y = 0.0f;
 	float z = 0.0f;
 public:
+	Vector3();
+	~Vector3();
+	Vector3(float x, float y, float z);
+
+	float GetX() const;
+	float GetY() const;
+	float GetZ() const;
+	
 	void GetVector()
 	{
-		float a, b, c;
-		std::cin >> a >> b >> c;
-		x = a;
-		y = b;
-		z = c;
+		std::cin >> x >> y >> z;
 	}
-	void PrintVector()
-	{
-		std::cout << "X: " << x << " || Y: " << y << " || Z: " << z << std::endl;
-	}
-	static Vector3 Sum(Vector3 a, Vector3 b, Vector3 c);
-};
 
-class Vector
-{
-	Vector()
-	{
-		std::cout << "벡터를 입력하세요.(X, Y, Z)" << std::endl;
-	}
+	static Vector3 Sum(Vector3 a, Vector3 b, Vector3 c);
+
 };
 
 int main()
 {
-	float a, b, c;
-	Vector3 v1, v2, v3;
-	v1.GetVector();
-	v1.PrintVector();
-	
+	Vector3 v;
+	v.GetVector();
+	Vector3 a(1, 2, 3), b(4, 5, 6), c(v.GetX(), v.GetY(), v.GetZ());
+	Vector3 sum = Vector3::Sum(a, b, c);
+	std::cout << "X: " << sum.GetX() << " || Y: " << sum.GetY() << " || Z: " << sum.GetZ() << std::endl;
+}
+Vector3::Vector3() : x(0), y(0), z(0){}
+Vector3::~Vector3() { std::cout << "소멸자 호출" << std::endl; }
+Vector3::Vector3(float x, float y, float z) : x(x), y(y), z(z) {}
+
+float Vector3::GetX() const { return x; }
+float Vector3::GetY() const { return y; }
+float Vector3::GetZ() const { return z; }
+
+Vector3 Vector3::Sum(Vector3 a, Vector3 b, Vector3 c)
+{
+	return Vector3(a.x + b.x + c.x, a.y + b.y + c.y, a.z + b.z + c.z);
 }

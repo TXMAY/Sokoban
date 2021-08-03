@@ -1,5 +1,2 @@
 ﻿  App.cpp
-C:\Users\pc\Desktop\TXMAY\멘토링\개인멘토링\hello_world\App.cpp(179,8): warning C4101: 'a': unreferenced local variable
-C:\Users\pc\Desktop\TXMAY\멘토링\개인멘토링\hello_world\App.cpp(179,11): warning C4101: 'b': unreferenced local variable
-C:\Users\pc\Desktop\TXMAY\멘토링\개인멘토링\hello_world\App.cpp(179,14): warning C4101: 'c': unreferenced local variable
   hello_world.vcxproj -> C:\Users\pc\Desktop\TXMAY\멘토링\개인멘토링\hello_world\x64\Debug\hello_world.exe
