@@ -208,7 +208,7 @@ position = Vector2( 1201.4, 424.76 )
 position = Vector2( 463.849, 560.405 )
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( 125.842, 522.8 )
+position = Vector2( 563.669, 195.764 )
 physics_material_override = SubResource( 1 )
 
 [node name="Enemies" type="Node2D" parent="."]
@@ -268,6 +268,9 @@ size_flags_horizontal = 2
 size_flags_vertical = 0
 text = "This is a simple demo on how to make a platformer game with Godot.\"This version uses physics and the 2D physics engine for motion and collision.\"\"The demo also shows the benefits of using the scene system, where coins,\"enemies and the player are edited separatedly and instanced in the stage.\"\"To edit the base tiles for the  tileset, open the tileset_edit.tscn file and follow \"instructions.\""
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
